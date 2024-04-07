@@ -1,7 +1,9 @@
 import { z } from "zod"
 
 const schemaLoginResponse = z.object({
-    token: z.string()
+    token: z.string(),
+    name: z.string(),
+    role: z.string()
 })
 
 
