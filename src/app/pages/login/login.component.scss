@@ -74,7 +74,16 @@
             border-color: var(--lavander-700);
           }
         }
+      }
 
+      .error {
+        border: 1px solid red;
+      }
+      
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 4px;
       }
 
       button[type="submit"] {
