@@ -21,6 +21,7 @@
     "ngx-sonner": "^0.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "zod": "^3.22.4",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

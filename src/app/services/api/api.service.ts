@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
   private baseUrl = 'http://localhost:8081'; 
 
@@ -22,6 +23,7 @@ export class ApiService {
   post<T = any>(url: string, data: any): Observable<T> {
     return this.http.post<T>(`${this.baseUrl}/${url}`, data);
   }
+
 
   put(url: string, data?: any) {
     if (data) {
