@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,12 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/${url}`);
   }
 
-  post(url: string, data: any) {
-    return this.http.post(`${this.baseUrl}/${url}`, data);
+  post<T>(url: string, data: any): Observable<T>;
+
+  post(url: string, data: any): Observable<any>;
+
+  post<T = any>(url: string, data: any): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}/${url}`, data);
   }
 
   put(url: string, data?: any) {
