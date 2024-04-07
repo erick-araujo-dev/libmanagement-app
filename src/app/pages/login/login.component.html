@@ -13,18 +13,35 @@
       </div>
       <fieldset>
         <label for="email">Email:</label>
-        <input type="text" id="email" formControlName="email" [class.error]="loginForm.get('email')?.invalid
-                && loginFormDirective.submitted" (input)="clearInvalidPassword()">
-        <label *ngIf="loginForm.get('email')?.errors && loginFormDirective.submitted" class="error-message">Informe um e-mail válido</label>
+        <input 
+          type="text" 
+          id="email" 
+          formControlName="email" 
+          [class.error]="loginForm.get('email')?.invalid && loginFormDirective.submitted" (input)="clearInvalidPassword()"
+        >
+
+        <label *ngIf="loginForm.get('email')?.errors && loginFormDirective.submitted" class="error-message">
+          Informe um e-mail válido
+        </label>
       </fieldset>
 
       <fieldset>
         <label for="password">Senha:</label>
-        <input type="password" id="password" formControlName="password"
+        <input 
+          type="password" 
+          id="password" 
+          formControlName="password"
           [class.error]="loginForm.get('password')?.errors && loginFormDirective.submitted"
-          (input)="clearInvalidPassword()">
-        <label *ngIf="loginForm.get('password')?.errors && loginFormDirective.submitted" class="error-message">Senha inválida</label>
-        <div *ngIf="invalidPassword" class="error-message">Credenciais inválidas. Por favor, verifique seu e-mail e senha e tente novamente.</div>
+          (input)="clearInvalidPassword()"
+          (error)="loginForm.get('password')?.errors && loginFormDirective.submitted" class="error"
+        >
+        <span *ngIf="loginForm.get('password')?.errors && loginFormDirective.submitted" class="error-message">
+          Senha inválida
+        </span>
+
+        <div *ngIf="invalidPassword" class="error-message">
+          Credenciais inválidas. Por favor, verifique seu e-mail e senha e tente novamente.
+        </div>
       </fieldset>
       <button type="submit">Entrar</button>
     </form>

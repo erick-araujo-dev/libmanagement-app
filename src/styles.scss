@@ -1,6 +1,6 @@
 
 :root {
-  --silver-50: #f7f7f7;
+  --silver-50:  #f7f7f7;
   --silver-100: #ededed;
   --silver-200: #dfdfdf;
   --silver-300: #c8c8c8;
@@ -12,7 +12,7 @@
   --silver-900: #545454;
   --silver-950: #363636;
 
-  --lavander-50: #faf5ff;
+  --lavander-50:  #faf5ff;
   --lavander-100: #f2e9fe;
   --lavander-200: #e8d6fe;
   --lavander-300: #d6b6fc;
@@ -24,7 +24,17 @@
   --lavander-900: #551f84;
   --lavander-950: #380962;
 
-
+  --cardinal-50:  #fef3f2;
+  --cardinal-100: #fde7e6;
+  --cardinal-200: #fad2d1;
+  --cardinal-300: #f6acab;
+  --cardinal-400: #f17b7b;
+  --cardinal-500: #e74c51;
+  --cardinal-600: #d32b38;
+  --cardinal-700: #c52233;
+  --cardinal-800: #951c2d;
+  --cardinal-900: #7f1c2c;
+  --cardinal-950: #470a12;
 
 }
 
@@ -38,4 +48,16 @@
 body * {
   font-family: "Inter", sans-serif;
   color: var(--silver-950);
+}
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body *:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 calc(2px + 0px) var(--lavander-500);
+
 }
