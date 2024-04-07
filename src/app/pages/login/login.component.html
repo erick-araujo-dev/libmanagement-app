@@ -38,10 +38,6 @@
         <span *ngIf="loginForm.get('password')?.errors && loginFormDirective.submitted" class="error-message">
           Senha inválida
         </span>
-
-        <div *ngIf="invalidPassword" class="error-message">
-          Credenciais inválidas. Por favor, verifique seu e-mail e senha e tente novamente.
-        </div>
       </fieldset>
       <button type="submit">Entrar</button>
     </form>

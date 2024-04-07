@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { toast } from 'ngx-sonner';
 
 interface LoginForm {
   email: FormControl,
@@ -32,11 +33,17 @@ export class LoginComponent {
   }
 
   submitLoginForm() {
+    toast.success("Sucesso ao entrar na aplicação", {
+      class: "toast-success"
+    })
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
       console.log("Dados do formulário:", formData);
       
       setTimeout(() => {
+        toast.error("Credenciais inválidas. Por favor, verifique seu e-mail e senha e tente novamente.", {
+          class: "toast-error"
+        })
         this.invalidPassword = true;
       }, 2000);
     } else {
