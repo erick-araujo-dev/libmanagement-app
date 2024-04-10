@@ -1,0 +1,94 @@
+aside {
+  max-width: 250px;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  background-color: var(--lavander-100);
+  border-right: 1px solid var(--lavander-300);
+  padding-top: 2rem;
+  
+
+  header, div, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.info-user {
+    margin-block: 110px;
+    overflow: hidden;
+    padding: 2px;
+
+    span.name {
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--lavander-800);
+    }
+
+    span.email {
+      font-size: 12px;
+      margin-top: 4px;
+      color: var(--lavander-950);
+
+    }
+  }
+
+  div.routes {
+    margin-top: 40px;
+
+    .border-top {
+      border-top: 1px solid var(--lavander-400);
+    }
+
+    a {
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      background-color: var(--lavander-300);
+      color: var(--lavander-950);
+      font-weight: 500;
+      font-size: 20px;
+      text-decoration: none;
+      transition: background-color .2s;
+      &:hover {
+        background-color: var(--lavander-400);
+      }
+    }
+
+
+  }
+
+
+  footer {
+    flex: 1;
+    justify-content: end;
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: var(--lavander-800);
+      color: var(--lavander-50);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      font-size: 18px;
+      transition: background-color .2s;
+      &:hover {
+        background-color: var(--lavander-700);
+      }
+      
+      .icon {
+        display: flex;
+        transform: rotate(180deg);
+      }
+      
+    }
+  }
+
+}

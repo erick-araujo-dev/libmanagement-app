@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { LoginService } from '../../services/auth/login.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,8 +18,11 @@ interface LoginForm {
   standalone: true,
   imports: [
     ReactiveFormsModule,
+    HttpClientModule,
     CommonModule, 
-    HttpClientModule
+    RouterOutlet,
+    RouterLink, 
+    RouterLinkActive
   ],
   providers: [
     LoginService,

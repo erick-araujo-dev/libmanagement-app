@@ -19,10 +19,12 @@
           formControlName="email" 
           [class.error]="loginForm.get('email')?.invalid && loginFormDirective.submitted" (input)="clearInvalidPassword()"
         >
-
-        <label *ngIf="loginForm.get('email')?.errors && loginFormDirective.submitted" class="error-message">
-          Informe um e-mail válido
-        </label>
+        @if (loginForm.get('email')?.errors && loginFormDirective.submitted) {
+          <label *ngIf="" class="error-message">
+            Informe um e-mail válido
+          </label>
+        }
+        
       </fieldset>
 
       <fieldset>
@@ -35,14 +37,18 @@
           (input)="clearInvalidPassword()"
           (error)="loginForm.get('password')?.errors && loginFormDirective.submitted" class="error"
         >
-        <span *ngIf="loginForm.get('password')?.errors && loginFormDirective.submitted" class="error-message">
-          Senha inválida
-        </span>
+
+        @if (loginForm.get('password')?.errors && loginFormDirective.submitted) {
+          <span class="error-message">
+            Senha inválida
+          </span>
+        }
+        
       </fieldset>
       <button type="submit">Entrar</button>
     </form>
 
-    <a href="">Cadastrar</a>
+    <a routerLink="/">Cadastrar</a>
   </div>
 
 </div>
