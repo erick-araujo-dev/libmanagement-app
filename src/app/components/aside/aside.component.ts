@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
 import {LucideAngularModule} from 'lucide-angular'
+import { LoginService } from '../../services/auth/login.service';
 
 @Component({
   selector: 'app-aside',
@@ -17,5 +18,14 @@ import {LucideAngularModule} from 'lucide-angular'
   styleUrl: './aside.component.scss'
 })
 export class AsideComponent {
+
+
+  constructor(private loginService: LoginService, private router: Router) {}
+
+
+  onLogout() {    
+    this.loginService.logout()
+    this.router.navigate(['/login'])
+  }
 
 }

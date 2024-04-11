@@ -12,13 +12,23 @@ export class LoginService {
   constructor(private api: ApiService) { }
 
   login(email: string, password: string){
-    return this.api.post<LoginResponse>(this.postMapping + "/login", { email, password }).pipe(
-      tap((value: LoginResponse) => {
-        sessionStorage.setItem("auth-token", value.token)
-        sessionStorage.setItem("name", value.name)
-        sessionStorage.setItem("role", value.role)
-      })
-    )
+    return this.api.post<LoginResponse>(this.postMapping + "/login", { email, password })
+  }
+
+  setToken(token: string) {
+    localStorage.setItem('@libmanagement:token', token)
+  }
+
+  getToken() {
+    return localStorage.getItem('@libmanagement:token')
+  }
+
+  isAuthenticate() {
+    return !!this.getToken()
+  }
+
+  logout() {
+    localStorage.removeItem('@libmanagement:token')
   }
 
   signup(name: string, email: string, password: string){

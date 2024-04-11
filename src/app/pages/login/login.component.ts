@@ -54,9 +54,11 @@ export class LoginComponent {
     
 
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => {
+      next: ({token}) => {
+        this.loginService.setToken(token)
+
         toast.success("Login feito com sucesso!", {class: 'toast-success'});
-        this.router.navigateByUrl('/app')
+        this.router.navigate(['/app'])
       },
       error: (error) => {
         if (error instanceof HttpErrorResponse) {
