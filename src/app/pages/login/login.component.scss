@@ -101,6 +101,11 @@
           cursor: pointer;
           background-color: var(--lavander-800);
         }
+
+        &:disabled {
+          background-color: var(--silver-300);
+          cursor:not-allowed;
+        }
       }
 
     }

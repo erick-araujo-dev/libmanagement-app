@@ -4,7 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { LoginService } from '../../services/auth/login.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { ApiService } from '../../services/api/api.service';
 
 interface LoginForm {
@@ -19,9 +19,9 @@ interface LoginForm {
   imports: [
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule, 
+    CommonModule,
     RouterOutlet,
-    RouterLink, 
+    RouterLink,
     RouterLinkActive
   ],
   providers: [
@@ -35,9 +35,9 @@ export class LoginComponent {
   title = "login";
   loginForm!: FormGroup<LoginForm>;
   invalidPassword = false;
+  isLoading = false
 
-
-  constructor( 
+  constructor(
     private router: Router,
     private loginService: LoginService) {
     this.loginForm = new FormGroup({
@@ -46,35 +46,32 @@ export class LoginComponent {
     });
   }
 
-  submitLoginForm(){
+
+
+   submitLoginForm() {
+    
+    console.log(this.loginForm);
+    
+
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => toast.success("Login feito com sucesso!"),
-      error: () => toast.error("Erro inesperado! Tente novamente mais tarde")
+      next: () => {
+        toast.success("Login feito com sucesso!", {class: 'toast-success'});
+        this.router.navigateByUrl('/app')
+      },
+      error: (error) => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.status === 401) {
+            toast.error("E-mail ou senha inválidos!", { class: 'toast-error' })
+          } else {
+            toast.error("Erro ao tentar se comunicar com o servidor tente novamente mais tarde", { class: 'toast-error' })
+          }
+        }
+      }
     })
+
+    this.isLoading = false
   }
-
-  // submitLoginForm() {
-  //   toast.success("Sucesso ao entrar na aplicação", {
-  //     class: "toast-success"
-  //   })
-  //   if (this.loginForm.valid) {
-  //     const formData = this.loginForm.value;
-  //     console.log("Dados do formulário:", formData);
-      
-  //     setTimeout(() => {
-  //       toast.error("Credenciais inválidas. Por favor, verifique seu e-mail e senha e tente novamente.", {
-  //         class: "toast-error"
-  //       })
-  //       this.invalidPassword = true;
-  //     }, 2000);
-  //   } else {
-  //     this.loginForm.markAllAsTouched(); 
-  //   }
-  // }
-
   clearInvalidPassword() {
     this.invalidPassword = false;
   }
-
-
 }

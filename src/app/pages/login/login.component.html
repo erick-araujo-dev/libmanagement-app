@@ -20,7 +20,7 @@
           [class.error]="loginForm.get('email')?.invalid && loginFormDirective.submitted" (input)="clearInvalidPassword()"
         >
         @if (loginForm.get('email')?.errors && loginFormDirective.submitted) {
-          <label *ngIf="" class="error-message">
+          <label  class="error-message">
             Informe um e-mail válido
           </label>
         }
@@ -45,7 +45,7 @@
         }
         
       </fieldset>
-      <button type="submit">Entrar</button>
+      <button type="submit" [disabled]="!loginForm.valid">Entrar</button>
     </form>
 
     <a routerLink="/">Cadastrar</a>
