@@ -52,6 +52,10 @@ aside {
       font-size: 20px;
       text-decoration: none;
       transition: background-color .2s;
+
+      &.active {
+        background-color: var(--lavander-500);
+      }
       &:hover {
         background-color: var(--lavander-400);
       }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router, ActivatedRoute } from '@angular/router';
 import {LucideAngularModule} from 'lucide-angular'
 import { LoginService } from '../../services/auth/login.service';
 
@@ -20,7 +20,17 @@ import { LoginService } from '../../services/auth/login.service';
 export class AsideComponent {
 
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router, private activateRoute: ActivatedRoute) {}
+
+
+  isActiveRoute(route: string) {
+
+    const activatedRoute = this.activateRoute.snapshot.url[1].path
+    
+
+   return activatedRoute === route
+    
+  }
 
 
   onLogout() {    

@@ -1,4 +1,5 @@
 <aside>
+
   <header>
     <img src="assets/svg/logo.svg" alt="Logo" width="200px">
   </header>
@@ -9,8 +10,8 @@
   </div>
 
   <div class="routes">
-    <a routerLink="/cadastro">Cadastro</a>
-    <a routerLink="/listagem" class="border-top">Listagem</a>
+    <a routerLink="/cadastro" [ngClass]="isActiveRoute('cadastro') ? 'active': ''" >Cadastro</a>
+    <a routerLink="/listagem" [ngClass]="isActiveRoute('listagem') ? 'active': ''" class="border-top">Listagem</a>
   </div>
 
   <footer>
