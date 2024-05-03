@@ -1,0 +1,31 @@
+.form-container {
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column;
+
+  .form-group {
+    display: flex;
+    margin-bottom: 20px;
+
+    .input-row {
+      flex: 1;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input, mat-checkbox {
+      height: 30px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+}
