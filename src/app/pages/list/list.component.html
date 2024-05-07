@@ -1,7 +1,22 @@
 
 <div class="list-container">
   <app-aside />
-  <div>
-    Listagem
-  </div>
+  <main>
+    <h2>Listagem</h2>
+
+    <form class="filter">
+      <label for="">Filtros:</label>
+      <input class="title" type="text" placeholder="Titulo do livro" />
+      <input class="author" type="text" placeholder="Nome do autor" />
+
+      <button type="submit">
+        <lucide-icon class="" color="var(--lavander-900)" name="search" [size]="18"></lucide-icon>
+        Filtrar resultados
+      </button>
+      <button type="button">
+        <lucide-icon class="" color="var(--lavander-900)" name="x" [size]="18"></lucide-icon>
+        Remover filtros
+      </button>
+    </form>
+  </main>
 </div>
