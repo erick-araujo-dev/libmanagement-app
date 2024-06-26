@@ -1,0 +1,16 @@
+<table>
+    <thead>
+      <tr>
+        <th *ngFor="let header of tableHeaders">{{ header }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableData">
+        <td>{{ row.title }}</td>
+        <td>{{ row.authors }}</td>
+        <td>{{ row.publication }}</td>
+        <td>{{ row.copies }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
