@@ -5,7 +5,6 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { toast } from 'ngx-sonner';
 import { LoginService } from '../../services/auth/login.service';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { ApiService } from '../../services/api/api.service';
 
 interface LoginForm {
   email: FormControl,
@@ -26,7 +25,6 @@ interface LoginForm {
   ],
   providers: [
     LoginService,
-    ApiService
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
